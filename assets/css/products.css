@@ -1,0 +1,130 @@
+/*
+=====================================================
+FICHIER : products.css
+ROLE :
+- Style dédié à la page produits
+- Gère l’affichage en grille des produits
+- Stylise chaque carte produit (image, texte, prix, bouton)
+- Responsive pour téléphone, tablette et ordinateur
+=====================================================
+*/
+
+/* ================= SECTION PRODUITS ================= */
+
+/* Conteneur principal de la section produits */
+.products-section {
+    padding: 40px 20px;
+}
+
+/* Titre "Nos Produits" */
+.products-section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--rose-principal);
+    font-size: 2rem;
+}
+
+/* ================= GRILLE DE PRODUITS ================= */
+
+/*
+La grille permet :
+- 1 colonne sur mobile
+- plusieurs colonnes automatiquement sur tablette / PC
+*/
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+/* ================= CARTE PRODUIT ================= */
+
+/* Conteneur d’un produit */
+.product-card {
+    background-color: var(--blanc);
+    border-radius: 12px;
+    overflow: hidden; /* Empêche l’image de dépasser */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Effet au survol */
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* ================= IMAGE PRODUIT ================= */
+
+/* Image du produit */
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* Coupe l’image sans la déformer */
+}
+
+/* ================= TEXTE PRODUIT ================= */
+
+/* Nom du produit */
+.product-card h3 {
+    margin: 15px;
+    font-size: 1.2rem;
+    color: var(--gris-texte);
+}
+
+/* Description */
+.product-description {
+    margin: 0 15px 10px;
+    font-size: 0.95rem;
+    color: #555;
+    flex-grow: 1; /* Pousse le bouton vers le bas */
+}
+
+/* Prix */
+.product-price {
+    margin: 0 15px 15px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--rose-principal);
+}
+
+/* ================= BOUTON ================= */
+
+/* Bouton "Ajouter au panier" */
+.product-card .btn-primary {
+    margin: 0 15px 20px;
+    text-align: center;
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* Téléphones */
+@media (max-width: 480px) {
+
+    .products-section {
+        padding: 30px 15px;
+    }
+
+    .products-section h2 {
+        font-size: 1.6rem;
+    }
+}
+
+/* Tablettes */
+@media (max-width: 768px) {
+
+    .product-card img {
+        height: 180px;
+    }
+}
+
+/* Grands écrans */
+@media (min-width: 1400px) {
+
+    .products-section {
+        max-width: 1300px;
+        margin: auto;
+    }
+}
