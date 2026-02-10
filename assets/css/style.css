@@ -1,0 +1,147 @@
+/*
+=====================================================
+FICHIER : style.css
+ROLE :
+- Style global du site Baobab Market
+- Design rose / blanc
+- Responsivité complète : téléphone, tablette, ordinateur
+- Compatible iPhone 6 → iPhone 17, tablettes et écrans larges
+=====================================================
+*/
+
+/* ================= VARIABLES GLOBALES ================= */
+:root {
+    --rose-principal: #e91e63;
+    --rose-clair: #f8bbd0;
+    --blanc: #ffffff;
+    --gris-texte: #333333;
+    --couleur-action: #ff9800;
+}
+
+/* ================= RESET GLOBAL ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ================= BASE DU DOCUMENT ================= */
+html {
+    font-size: 16px; /* base adaptable */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--blanc);
+    color: var(--gris-texte);
+    line-height: 1.6;
+}
+
+/* ================= LIENS ================= */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ================= HEADER ================= */
+.main-header {
+    width: 100%;
+    background-color: var(--blanc);
+    border-bottom: 2px solid var(--rose-principal);
+}
+
+/* ================= HERO SECTION ================= */
+.hero {
+    text-align: center;
+    padding: 4rem 1.5rem;
+    background: linear-gradient(
+        to right,
+        var(--rose-principal),
+        var(--rose-clair)
+    );
+    color: var(--blanc);
+}
+
+.hero h2 {
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    margin-bottom: 2rem;
+}
+
+/* ================= BOUTON ================= */
+.btn-primary {
+    display: inline-block;
+    padding: 0.8rem 1.8rem;
+    background-color: var(--couleur-action);
+    color: var(--blanc);
+    border-radius: 30px;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #e68900;
+}
+
+/* ================= FOOTER ================= */
+.footer {
+    text-align: center;
+    padding: 1.2rem;
+    background-color: var(--rose-principal);
+    color: var(--blanc);
+}
+
+/* =====================================================
+   RESPONSIVE DESIGN – PAR TAILLE D’ÉCRAN
+===================================================== */
+
+/* 🔹 Très petits téléphones (≤ 360px) */
+@media (max-width: 360px) {
+    html {
+        font-size: 14px;
+    }
+
+    .hero {
+        padding: 3rem 1rem;
+    }
+}
+
+/* 🔹 Téléphones standards (iPhone 6 → 17) */
+@media (max-width: 480px) {
+    .hero {
+        padding: 3.5rem 1.2rem;
+    }
+}
+
+/* 🔹 Grands téléphones */
+@media (max-width: 600px) {
+    .btn-primary {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* 🔹 Tablettes portrait */
+@media (max-width: 768px) {
+    .hero {
+        padding: 4rem 2rem;
+    }
+}
+
+/* 🔹 Tablettes paysage */
+@media (max-width: 1024px) {
+    body {
+        font-size: 15px;
+    }
+}
+
+/* 🔹 Grands écrans (PC larges) */
+@media (min-width: 1400px) {
+    .hero {
+        padding: 6rem 3rem;
+    }
+}

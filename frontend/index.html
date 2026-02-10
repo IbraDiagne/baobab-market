@@ -1,0 +1,83 @@
+
+<!--
+=====================================================
+FICHIER : index.html
+ROLE :
+- Page d’accueil du site Baobab Market
+- Contient la structure principale (header, contenu, footer)
+- Sert de base à toutes les autres pages du site
+=====================================================
+-->
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <!-- Encodage des caractères pour afficher correctement le français -->
+    <meta charset="UTF-8">
+
+    <!-- Permet le responsive sur mobile/tablette -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Titre affiché dans l’onglet du navigateur -->
+    <title>Baobab Market - Paiement à la livraison</title>
+
+    <!-- Feuille de style principale -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+
+    <!-- Style spécifique du header -->
+    <link rel="stylesheet" href="../assets/css/header.css">
+</head>
+<body>
+
+    <!-- ================= HEADER ================= -->
+    <header class="main-header">
+
+        <!-- Bandeau animation paiement à la livraison -->
+        <div class="delivery-banner">
+            <p>Paiement à la livraison partout au Sénégal 🇸🇳</p>
+        </div>
+
+        <!-- Barre de navigation -->
+        <nav class="navbar">
+
+            <!-- Logo du site -->
+            <div class="logo">
+                <h1>Baobab Market</h1>
+            </div>
+
+            <!-- Menu principal -->
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="produits.html">Produits</a></li>
+                <li><a href="panier.html">Panier</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+        </nav>
+    </header>
+
+    <!-- ================= CONTENU PRINCIPAL ================= -->
+    <main>
+
+        <!-- Section Hero (mise en avant du site) -->
+        <section class="hero">
+            <h2>La force du baobab, à portée de clic</h2>
+            <p>Qualité, prix doux et livraison rapide partout au Sénégal</p>
+
+            <!-- Bouton appel à l'action -->
+            <a href="produits.html" class="btn-primary">
+                Découvrir les produits
+            </a>
+        </section>
+
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+        <p>&copy; 2026 Baobab Market - Tous droits réservés</p>
+    </footer>
+
+    <!-- Script animation -->
+    <script src="../assets/js/animation.js"></script>
+</body>
+</html>
