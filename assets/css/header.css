@@ -1,0 +1,74 @@
+/*
+=====================================================
+FICHIER : header.css
+ROLE :
+- Gère l’apparence du header du site
+- Stylise le bandeau "Paiement à la livraison"
+- Organise le menu de navigation
+- Prépare le responsive (mobile / tablette / PC)
+=====================================================
+*/
+
+/* ================= BANDEAU LIVRAISON ================= */
+.delivery-banner {
+    background-color: #ff4081; /* Rose plus vif pour attirer l’œil */
+    color: white;
+    text-align: center;
+    padding: 8px 10px;
+    font-weight: bold;
+    font-size: 0.95rem;
+}
+
+/* ================= BARRE DE NAVIGATION ================= */
+.navbar {
+    display: flex;                    /* Met les éléments sur une ligne */
+    justify-content: space-between;  /* Logo à gauche, menu à droite */
+    align-items: center;             /* Alignement vertical */
+    padding: 15px 20px;
+}
+
+/* ================= LOGO ================= */
+.logo h1 {
+    color: var(--rose-principal);
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+/* ================= MENU ================= */
+.nav-links {
+    list-style: none;   /* Supprime les puces */
+    display: flex;
+    gap: 20px;          /* Espacement entre les liens */
+}
+
+/* Liens du menu */
+.nav-links li a {
+    font-weight: 500;
+    padding: 5px 10px;
+    transition: 0.3s;
+}
+
+/* Effet au survol */
+.nav-links li a:hover {
+    color: var(--rose-principal);
+    border-bottom: 2px solid var(--rose-principal);
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* 🔹 Téléphones & tablettes */
+@media (max-width: 768px) {
+
+    /* Empile le logo et le menu */
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    /* Menu en colonne */
+    .nav-links {
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+    }
+}
