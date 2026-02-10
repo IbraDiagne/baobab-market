@@ -1,0 +1,61 @@
+/*
+=====================================================
+FICHIER : product-detail.css
+ROLE :
+- Style de la page détail produit
+- Mise en page image + informations
+- Responsive mobile / tablette / PC
+=====================================================
+*/
+
+/* Conteneur principal */
+.product-detail {
+    display: flex;
+    gap: 40px;
+    padding: 40px 20px;
+}
+
+/* Image produit */
+.product-image img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 12px;
+}
+
+/* Infos produit */
+.product-info {
+    max-width: 500px;
+}
+
+/* Nom */
+.product-info h2 {
+    color: var(--rose-principal);
+    margin-bottom: 15px;
+}
+
+/* Prix */
+.product-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Description */
+.product-description {
+    margin-bottom: 25px;
+    color: #555;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+
+    .product-detail {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .product-info {
+        max-width: 100%;
+    }
+}
