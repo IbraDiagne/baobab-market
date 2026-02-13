@@ -1,0 +1,92 @@
+<!--
+=====================================================
+FICHIER : checkout.html
+ROLE :
+- Page de validation de commande
+- Permet à l’utilisateur d’entrer ses informations
+- Envoie les données vers le backend (plus tard)
+- Compatible avec paiement à la livraison
+=====================================================
+-->
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validation de commande - Baobab Market</title>
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/header.css">
+    <link rel="stylesheet" href="../assets/css/checkout.css">
+</head>
+<body>
+
+    <!-- ================= HEADER ================= -->
+    <header class="main-header">
+        <div class="delivery-banner">
+            <p>Paiement à la livraison partout au Sénégal 🇸🇳</p>
+        </div>
+
+        <nav class="navbar">
+            <div class="logo">
+                <h1>Baobab Market</h1>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="produits.html">Produits</a></li>
+                <li><a href="panier.html">Panier</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ================= CHECKOUT ================= -->
+    <main>
+
+        <section class="checkout-section">
+
+            <h2>Finaliser votre commande</h2>
+
+            <form id="checkout-form">
+
+                <!-- Nom complet -->
+                <label>Nom complet :</label>
+                <input type="text" required>
+
+                <!-- Téléphone -->
+                <label>Téléphone :</label>
+                <input type="tel" required>
+
+                <!-- Adresse -->
+                <label>Adresse de livraison :</label>
+                <textarea required></textarea>
+
+                <!-- Méthode paiement -->
+                <label>Méthode de paiement :</label>
+                <select required>
+                    <option value="">Choisir</option>
+                    <option>Paiement à la livraison</option>
+                    <option>Orange Money</option>
+                    <option>Wave</option>
+                </select>
+
+                <!-- Bouton validation -->
+                <button type="submit" class="btn-primary">
+                    Confirmer la commande
+                </button>
+
+            </form>
+
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 Baobab Market</p>
+    </footer>
+
+    <script src="../assets/js/checkout.js"></script>
+
+</body>
+</html>
