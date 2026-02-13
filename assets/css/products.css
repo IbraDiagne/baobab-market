@@ -128,3 +128,33 @@ La grille permet :
         margin: auto;
     }
 }
+
+
+/* =====================================================
+   AMÉLIORATION CARTES PRODUITS PRO
+===================================================== */
+
+/* Évite cartes trop larges sur grand écran */
+@media (min-width: 1600px) {
+    .products-grid {
+        max-width: 1400px;
+        margin: auto;
+    }
+}
+
+/* Ajustement mobile extrême */
+@media (max-width: 360px) {
+
+    .product-card img {
+        height: 160px;
+    }
+
+    .product-card h3 {
+        font-size: 1rem;
+    }
+
+    .product-price {
+        font-size: 1rem;
+    }
+}
+

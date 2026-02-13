@@ -145,3 +145,44 @@ a {
         padding: 6rem 3rem;
     }
 }
+/* =====================================================
+   AMÉLIORATIONS RESPONSIVE PRO
+===================================================== */
+
+/* Empêche tout débordement horizontal */
+body {
+    overflow-x: hidden;
+}
+
+/* Images toujours adaptatives */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Conteneur central intelligent */
+.container {
+    width: 100%;
+    max-width: 1300px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+/* Typographie fluide moderne */
+h1 {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+h2 {
+    font-size: clamp(1.3rem, 3vw, 2rem);
+}
+
+p {
+    font-size: clamp(0.9rem, 2vw, 1rem);
+}
+
+/* Boutons optimisés tactile (mobile) */
+button {
+    min-height: 44px; /* recommandé par Apple */
+}
