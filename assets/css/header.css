@@ -2,102 +2,120 @@
 =====================================================
 FICHIER : header.css
 ROLE :
-- Gère l’apparence du header du site
-- Stylise le bandeau "Paiement à la livraison"
-- Organise le menu de navigation
-- Prépare le responsive (mobile / tablette / PC)
+- Style complet du header
+- Bandeau livraison animé (fonctionnel)
+- Navbar responsive
 =====================================================
 */
 
-/* ================= BANDEAU LIVRAISON ================= */
+/* =========================
+   VARIABLES (si pas déjà dans style.css)
+========================= */
+
+:root {
+    --rose-principal: #e91e63;
+    --couleur-action: #ff9800;
+    --blanc: #ffffff;
+    --gris-texte: #333;
+}
+
+/* =========================
+   BANDEAU LIVRAISON ANIMÉ
+========================= */
+
 .delivery-banner {
-    background-color: #ff4081; /* Rose plus vif pour attirer l’œil */
-    color: white;
-    text-align: center;
-    padding: 8px 10px;
+    background: linear-gradient(90deg,#ff4081,#ff80ab);
+    overflow: hidden;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.delivery-track {
+    width: 100%;
+    position: relative;
+}
+
+.delivery-text {
+    position: absolute;
+    white-space: nowrap;
     font-weight: bold;
+    color: white;
     font-size: 0.95rem;
+    animation: slideBanner 12s linear infinite;
 }
 
-/* ================= BARRE DE NAVIGATION ================= */
+@keyframes slideBanner {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100vw);
+    }
+}
+
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.main-header {
+    background: var(--blanc);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
 .navbar {
-    display: flex;                    /* Met les éléments sur une ligne */
-    justify-content: space-between;  /* Logo à gauche, menu à droite */
-    align-items: center;             /* Alignement vertical */
+    max-width: 1200px;
+    margin: auto;
     padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-/* ================= LOGO ================= */
+/* Logo */
 .logo h1 {
     color: var(--rose-principal);
     font-size: 1.6rem;
-    font-weight: bold;
+    margin: 0;
 }
 
-/* ================= MENU ================= */
+/* Liens */
 .nav-links {
-    list-style: none;   /* Supprime les puces */
+    list-style: none;
     display: flex;
-    gap: 20px;          /* Espacement entre les liens */
+    gap: 25px;
+    margin: 0;
+    padding: 0;
 }
 
-/* Liens du menu */
 .nav-links li a {
+    text-decoration: none;
+    color: var(--gris-texte);
     font-weight: 500;
-    padding: 5px 10px;
-    transition: 0.3s;
+    transition: 0.3s ease;
 }
 
-/* Effet au survol */
 .nav-links li a:hover {
     color: var(--rose-principal);
-    border-bottom: 2px solid var(--rose-principal);
 }
 
-/* ================= RESPONSIVE ================= */
+/* =========================
+   RESPONSIVE
+========================= */
 
-/* 🔹 Téléphones & tablettes */
 @media (max-width: 768px) {
 
-    /* Empile le logo et le menu */
     .navbar {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-links {
         flex-direction: column;
         gap: 10px;
-    }
-
-    /* Menu en colonne */
-    .nav-links {
-        flex-direction: column;
-        gap: 12px;
         align-items: center;
-    }
-}
-
-
-
-/* =====================================================
-   MENU MOBILE AMÉLIORÉ
-===================================================== */
-
-@media (max-width: 768px) {
-
-    .navbar {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .nav-links {
-        width: 100%;
-        text-align: center;
-    }
-
-    .nav-links li {
-        width: 100%;
-        padding: 8px 0;
-    }
-
-    .nav-links li a {
-        display: block;
-        width: 100%;
     }
 }

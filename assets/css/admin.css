@@ -1,0 +1,357 @@
+
+/*
+=====================================================
+ADMIN PANEL - VERSION PREMIUM
+=====================================================
+*/
+
+body {
+    background: linear-gradient(135deg, #fce4ec, #f8bbd0);
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+}
+
+/* Container principal */
+.admin-container {
+    max-width: 1000px;
+    margin: 80px auto;
+    background: white;
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+/* Titre */
+.admin-container h2 {
+    color: #e91e63;
+    font-size: 28px;
+    margin-bottom: 30px;
+}
+
+/* Navigation admin */
+.admin-links {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.admin-links a {
+    text-decoration: none;
+    padding: 14px 30px;
+    border-radius: 50px;
+    background: linear-gradient(45deg, #e91e63, #ff4081);
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    transition: 0.3s ease;
+    box-shadow: 0 6px 15px rgba(233, 30, 99, 0.3);
+}
+
+.admin-links a:hover {
+    transform: translateY(-3px);
+}
+
+/* Cartes */
+.admin-card {
+    background: #fafafa;
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    border-left: 5px solid #e91e63;
+}
+
+/* Boutons modifier/supprimer */
+.admin-card a {
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 13px;
+    margin-right: 10px;
+}
+
+.admin-card a:first-of-type {
+    background: #2196f3;
+    color: white;
+}
+
+.admin-card a:last-of-type {
+    background: #f44336;
+    color: white;
+}
+
+/* Form */
+.admin-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.admin-form input,
+.admin-form textarea {
+    padding: 14px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+}
+
+.admin-form button {
+    padding: 16px;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(45deg, #ff9800, #ffb74d);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 15px;
+    transition: 0.3s ease;
+}
+
+.admin-form button:hover {
+    transform: translateY(-3px);
+}
+
+
+/* ======================================
+   BOUTONS ADMIN PROFESSIONNELS
+====================================== */
+
+.admin-actions {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 35px;
+    flex-wrap: wrap;
+}
+
+.btn-admin {
+    padding: 14px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    transition: 0.3s ease;
+    display: inline-block;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.1);
+}
+
+/* Couleurs différentes */
+.btn-primary {
+    background: linear-gradient(45deg, #e91e63, #ff4081);
+    color: white;
+}
+
+.btn-secondary {
+    background: linear-gradient(45deg, #3f51b5, #5c6bc0);
+    color: white;
+}
+
+.btn-danger {
+    background: linear-gradient(45deg, #f44336, #ff6b6b);
+    color: white;
+}
+
+.btn-admin:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+/* ================================
+   BOUTONS PRODUIT (Modifier/Supprimer)
+================================ */
+
+.product-actions {
+    margin-top: 15px;
+    display: flex;
+    gap: 15px;
+}
+
+.btn-edit {
+    background: linear-gradient(45deg, #2196f3, #64b5f6);
+    color: white;
+}
+
+.btn-delete {
+    background: linear-gradient(45deg, #f44336, #e57373);
+    color: white;
+}
+
+
+/* ================================
+   COMMANDES ADMIN
+================================ */
+
+.order-card {
+    background: #fafafa;
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 25px;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.05);
+}
+
+.order-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.order-header h3 {
+    margin: 0;
+    color: #e91e63;
+}
+
+.order-total {
+    background: #e91e63;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.order-details p {
+    margin: 5px 0;
+}
+
+.order-products ul {
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+.order-products li {
+    margin-bottom: 5px;
+}
+
+
+/* ======================================
+   LOGIN ADMIN PREMIUM
+====================================== */
+
+.login-container {
+    max-width: 420px;
+    margin: 120px auto;
+    background: rgba(255,255,255,0.95);
+    padding: 45px;
+    border-radius: 20px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+    backdrop-filter: blur(10px);
+}
+
+.login-container h2 {
+    text-align: center;
+    color: #e91e63;
+    margin-bottom: 35px;
+    font-size: 26px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.login-form input {
+    padding: 14px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    transition: 0.3s ease;
+}
+
+.login-form input:focus {
+    border-color: #e91e63;
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(233, 30, 99, 0.1);
+}
+
+.login-form button {
+    padding: 16px;
+    border-radius: 50px;
+    border: none;
+    background: linear-gradient(45deg, #e91e63, #ff4081);
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.login-form button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(233, 30, 99, 0.3);
+}
+
+.status-form {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+.status-form select {
+    padding: 8px;
+    border-radius: 8px;
+}
+
+
+/* ===============================
+   STATUT COMMANDES
+=============================== */
+
+.order-status {
+    margin-top: 15px;
+}
+
+.status-badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    color: white;
+    font-weight: bold;
+}
+
+.status-en-attente {
+    background: orange;
+}
+
+.status-traitée {
+    background: #2196f3;
+}
+
+.status-livrée {
+    background: green;
+}
+
+.status-form {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.status-form select {
+    padding: 8px;
+    border-radius: 8px;
+}
+
+
+/* ===============================
+   DASHBOARD STATS
+=============================== */
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.stat-card {
+    background: linear-gradient(45deg, #e91e63, #ff4081);
+    color: white;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.stat-card h3 {
+    font-size: 28px;
+    margin: 0;
+}

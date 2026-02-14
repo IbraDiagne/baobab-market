@@ -2,79 +2,121 @@
 =====================================================
 FICHIER : cart.js
 ROLE :
-- Gère le panier du site Baobab Market
-- Ajoute / supprime des produits
-- Stocke les données dans LocalStorage
+- Gestion panier avec LocalStorage
+- Gestion quantité
+- Calcul total
 =====================================================
 */
 
-/* ================= PANIER GLOBAL ================= */
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
+function getCart() {
+    return JSON.parse(localStorage.getItem("cart")) || [];
+}
 
-/* Sauvegarde du panier */
-function saveCart() {
+function saveCart(cart) {
     localStorage.setItem("cart", JSON.stringify(cart));
 }
 
-/* ================= AJOUT AU PANIER ================= */
-function addToCart(name, price) {
+function addToCart(id, name, price) {
 
-    const product = {
-        name: name,
-        price: price
-    };
+    let cart = getCart();
 
-    cart.push(product);
-    saveCart();
+    let existing = cart.find(item => item.id === id);
 
-    alert(name + " ajouté au panier 🛒");
+    if (existing) {
+        existing.quantity++;
+    } else {
+        cart.push({
+            id: id,
+            name: name,
+            price: price,
+            quantity: 1
+        });
+    }
+
+    saveCart(cart);
+    alert("Produit ajouté au panier !");
 }
 
-/* ================= AFFICHAGE PANIER ================= */
-function displayCart() {
+function removeFromCart(id) {
+    let cart = getCart();
+    cart = cart.filter(item => item.id !== id);
+    saveCart(cart);
+    renderCart();
+}
 
-    const cartContainer = document.getElementById("cart-items");
+function updateQuantity(id, change) {
+    let cart = getCart();
+    let item = cart.find(item => item.id === id);
+
+    if (!item) return;
+
+    item.quantity += change;
+
+    if (item.quantity <= 0) {
+        removeFromCart(id);
+    } else {
+        saveCart(cart);
+        renderCart();
+    }
+}
+
+function renderCart() {
+
+    const cartItems = document.getElementById("cart-items");
     const cartTotal = document.getElementById("cart-total");
 
-    /* Si on n’est pas sur la page panier */
-    if (!cartContainer || !cartTotal) return;
+    if (!cartItems) return;
 
-    cartContainer.innerHTML = "";
+    let cart = getCart();
+    cartItems.innerHTML = "";
+
     let total = 0;
 
+    cart.forEach(item => {
+
+        total += item.price * item.quantity;
+
+        cartItems.innerHTML += `
+            <div class="cart-item">
+                <h4>${item.name}</h4>
+                <p>${item.price} FCFA</p>
+
+                <div class="quantity-controls">
+                    <button onclick="updateQuantity(${item.id}, -1)">-</button>
+                    <span>${item.quantity}</span>
+                    <button onclick="updateQuantity(${item.id}, 1)">+</button>
+                </div>
+
+                <button onclick="removeFromCart(${item.id})">
+                    Supprimer
+                </button>
+            </div>
+        `;
+    });
+
+    cartTotal.innerText = "Total : " + total + " FCFA";
+}
+
+document.addEventListener("DOMContentLoaded", renderCart);
+
+/* Envoi panier vers serveur */
+document.getElementById("checkout-btn")?.addEventListener("click", function() {
+
+    let cart = getCart();
+
     if (cart.length === 0) {
-        cartContainer.innerHTML = "<p>Votre panier est vide.</p>";
-        cartTotal.textContent = "Total : 0 FCFA";
+        alert("Panier vide !");
         return;
     }
 
-    cart.forEach((product, index) => {
-
-        total += product.price;
-
-        const item = document.createElement("div");
-        item.classList.add("product-card");
-
-        item.innerHTML = `
-            <h3>${product.name}</h3>
-            <p>${product.price} FCFA</p>
-            <button class="btn-primary" onclick="removeFromCart(${index})">
-                Supprimer
-            </button>
-        `;
-
-        cartContainer.appendChild(item);
+    fetch("../backend/process/save-cart.php", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(cart)
+    })
+    .then(() => {
+        window.location.href = "checkout.php";
     });
-
-    cartTotal.textContent = "Total : " + total + " FCFA";
-}
-
-/* ================= SUPPRESSION ================= */
-function removeFromCart(index) {
-    cart.splice(index, 1);
-    saveCart();
-    displayCart();
-}
-
-/* Affichage automatique si page panier */
-displayCart();
+});
